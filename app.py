@@ -37,7 +37,6 @@ def recommend():
 
         data.append(item)
 
-    print(data)
     return render_template('Recommend.html', data=data)
 
 if __name__ == '__main__':
