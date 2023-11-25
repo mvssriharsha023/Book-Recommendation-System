@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Recommender</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="background-color: rgb(57, 53, 53)">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color: whitesmoke"
+          ><h4>Book Recommender &nbsp;|</h4></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="#"
+                style="color: whitesmoke"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/recommend" style="color: whitesmoke"
+                >Recommend</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br /><br />
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-white" style="color: whitesmoke">Top 100 Books</h1>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        {% for i in range(book_name|length) %}
+        <div class="col-md-2" style="margin-bottom: 50px">
+          <div class="card" style="background-color: whitesmoke">
+            <div class="card-body">
+              <img class="card-img-top" src="{{ image[i] }}" />
+              <h6 class="text-black"><b>{{ book_name[i] }}</b></h6>
+              <h6 class="text-black">{{ author[i] }}</h6>
+              <h6 class="text-black">Votes - {{ votes[i] }}</h6>
+              <h6 class="text-black">
+                Rating - {{'%0.2f'| format(rating[i])}}
+              </h6>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>
