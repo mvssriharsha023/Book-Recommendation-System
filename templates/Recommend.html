@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body style="background-color: rgb(57, 53, 53);">
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" style="color: whitesmoke;"><h4>Book Recommender &nbsp;|</h4></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/" style="color: whitesmoke;">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/recommend" style="color: whitesmoke;">Recommend</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <h2 style="color: whitesmoke;"><br>Recommend books</h2><br>
+
+        <form method="post" action="/recommend_books" name="my_form">
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="User input" id="user_input" name="user_input"></textarea>
+                <label for="user_input">Enter the book name</label>
+              </div>
+          </div>
+                <br />
+                <div class="container">
+                    <div
+                  class="submit-button"
+                >
+                  <button class="btn btn-outline-light btn-lg">Search</button>
+                </div>
+                </div>
+                
+                <br />
+              </div>
+            </div>
+          </form>
+
+          {% if data %}
+          <div class="container">
+            <div class="row">
+                {% for i in data %}
+                   <div class="col-md-2" style="margin-top:50px">
+                       <div class="card">
+                           <div class="card-body">
+                               <img class="card-img-top" src="{{i[2]}}">
+                               <p class="text-black">{{i[0]}}</p>
+                               <h5 class="text-black">{{i[1]}}</h5>
+                           </div>
+                       </div>
+                   </div>
+                {% endfor %}
+               </div>
+          </div>
+             
+
+            {% endif %}
+          
+</body>
+</html>
